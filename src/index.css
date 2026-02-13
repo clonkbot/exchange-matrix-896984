@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-terminal-green: #00ff88;
+  --color-terminal-cyan: #00d4ff;
+  --color-terminal-amber: #ffaa00;
+  --color-bg-dark: #0a0a0a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'JetBrains Mono', monospace;
+  background-color: var(--color-bg-dark);
+  color: var(--color-terminal-green);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom font classes */
+.font-orbitron {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-dark);
+  border-left: 1px solid rgba(0, 255, 136, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 136, 0.3);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 136, 0.5);
+}
+
+/* Selection */
+::selection {
+  background: var(--color-terminal-green);
+  color: var(--color-bg-dark);
+}
+
+/* Text glow effects */
+.text-shadow-glow {
+  text-shadow: 0 0 10px var(--color-terminal-green), 0 0 20px var(--color-terminal-green), 0 0 30px var(--color-terminal-green);
+}
+
+.text-shadow-glow-cyan {
+  text-shadow: 0 0 10px var(--color-terminal-cyan), 0 0 20px var(--color-terminal-cyan), 0 0 30px var(--color-terminal-cyan);
+}
+
+.text-shadow-glow-amber {
+  text-shadow: 0 0 10px var(--color-terminal-amber), 0 0 20px var(--color-terminal-amber), 0 0 30px var(--color-terminal-amber);
+}
+
+/* Animations */
+@keyframes scan-line {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.animate-scan-line {
+  animation: scan-line 1.5s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-flicker {
+  animation: flicker 0.1s infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--color-terminal-green), 0 0 10px var(--color-terminal-green);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--color-terminal-green), 0 0 40px var(--color-terminal-green);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Input styles */
+input:focus {
+  outline: none;
+}
+
+input::placeholder {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Button transitions */
+button {
+  transition: all 0.2s ease;
+}
+
+/* Card hover effects */
+.card-hover:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+}
